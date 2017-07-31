@@ -1,6 +1,5 @@
 //
 //  TransportAPI.swift
-//  StopCHop
 //
 //  Created by Sam Kass on 7/2/17.
 //  Copyright © 2017 Aardustry LLC. All rights reserved.
@@ -20,11 +19,11 @@ class TransportAPI {
   // MARK: Locations query
   
   static func endpointForLocationQuery(_ query: String, type: QueryType = .all) -> String {
-    return "https://transport-beta.opendata.ch/v1/locations?"+"query=\(query)&type=\(type)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    return "https://transport.opendata.ch/v1/locations?"+"query=\(query)&type=\(type)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
   }
   
   static func endpointForLocationXY(_ x: Float, _ y: Float) -> String {
-    return "https://transport-beta.opendata.ch/v1/locations?"+"x=\(x)&y=\(y)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    return "https://transport.opendata.ch/v1/locations?"+"x=\(x)&y=\(y)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
   }
   
   static func locationsForQuery(_ query: String, type: QueryType = .all, completionHandler: @escaping (Locations?, Error?) -> Void) {
@@ -90,7 +89,7 @@ class TransportAPI {
       }
     }
     
-    let url = "https://transport-beta.opendata.ch/v1/connections?"+"from=\(from)&to=\(to)\(dateParam)\(timeParam)\(transportationsParam)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    let url = "https://transport.opendata.ch/v1/connections?"+"from=\(from)&to=\(to)\(dateParam)\(timeParam)\(transportationsParam)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     return url
   }
   
