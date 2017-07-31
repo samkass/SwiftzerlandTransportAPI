@@ -144,6 +144,8 @@ class TransportAPI {
   
 }
 
+// MARK: Object model
+
 struct Locations: Codable {
   var stations: [Location]?
 }
