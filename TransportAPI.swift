@@ -23,10 +23,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 //
-//  Created by Sam Kass on 7/2/17.
+//  Created by Sam Kass on 2017-07-02.
 
 // TODO: Support more parameters
-// TODO: Correctly identify required fields (remove some of the ?'s)
+// TODO: Correctly identify required returned fields (remove some of the ?'s)
 // TODO: Better error handling
 
 import Foundation
