@@ -25,6 +25,10 @@
 //
 //  Created by Sam Kass on 7/2/17.
 
+// TODO: Support more parameters
+// TODO: Correctly identify required fields (remove some of the ?'s)
+// TODO: Better error handling
+
 import Foundation
 
 enum BackendError: Error {
@@ -33,8 +37,11 @@ enum BackendError: Error {
 }
 
 class TransportAPI {
+  
   enum QueryType {case all, station, poi, address }
-  enum TransportationType {case ice_tgv_rj, ec_ic, ir, re_d, ship, s_sn_r, bus, cableway, arz_ext, tramway_underground }
+  
+  // Transportation types are not supported by new TransportAPI back end; ignored for now
+  enum TransportationType {case all, ice_tgv_rj, ec_ic, ir, re_d, ship, s_sn_r, bus, cableway, arz_ext, tramway_underground }
   
   // MARK: Locations query
   
@@ -76,7 +83,7 @@ class TransportAPI {
       }
       
       // parse the result as JSON
-      // then create a Todo from the JSON
+      // then create a Locations object from the JSON
       let decoder = JSONDecoder()
       decoder.dateDecodingStrategy = .iso8601
       
@@ -144,7 +151,7 @@ class TransportAPI {
       }
       
       // parse the result as JSON
-      // then create a Todo from the JSON
+      // then create a Connections object from the JSON
       let decoder = JSONDecoder()
       decoder.dateDecodingStrategy = .iso8601
       
@@ -245,7 +252,7 @@ struct Journey : Codable {
     case category
     case categoryCode
     case number
-    case company = "operator"
+    case company = "operator" // needed since "operator" is a Swift keyword
   }
 }
 
