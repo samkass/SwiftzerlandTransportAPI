@@ -36,6 +36,12 @@ enum BackendError: Error {
   case objectSerialization(reason: String)
 }
 
+extension String {
+  static func xyToString(_ x : Double, _ y : Double) -> String {
+    return "\(x),\(y)"
+  }
+}
+
 class TransportAPI {
   
   enum QueryType {case all, station, poi, address }
@@ -101,10 +107,6 @@ class TransportAPI {
   }
   
   // MARK: Locations query
-  
-  static func xyToString(_ x : Double, _ y : Double) -> String {
-    return "\(x),\(y)"
-  }
   
   static func endpointForConnections(from: String, to: String, date: String = "", time: String = "", transportations: [TransportationType] = []) -> String {
     let dateParam = date == "" ? "" : "&date="+date

@@ -10,7 +10,7 @@ To use SwiftzerlandTransportAPI, check out the project then drag the folder into
 
 ## How to call
 
-To call the API, call TransportAPI.connectionsForLocations. If you have a lat/lon location, pass in TransportAPI.xyToString into one of the arguments. For a list of locations based on an arbitrary query, use TranportAPI.locationsForQuery.
+To get a list of transportation options from the API, call TransportAPI.connectionsForLocations.
 
     TransportAPI.connectionsForLocations(from: "Zürich HB", to: "Oberrieden", completionHandler: { (connections, error) in
       if let error = error {
@@ -26,16 +26,27 @@ To call the API, call TransportAPI.connectionsForLocations. If you have a lat/lo
       print(connections.connections?.last)
     }
     
-An example of using a latitude and longitude is below. This call asks for the next S-Bahn trains to Zürich HB from myLocation (note the "transportations" selector is inoperative in the current TransportAPI service, so for now we will get all transportation types):
+An example of using a latitude and longitude is below. The TransportAPI.swift file extends String with a xyToString function. This call asks for the next S-Bahn trains to Zürich HB from myLocation (note the "transportations" selector is inoperative in the current TransportAPI service, so for now we will get all transportation types):
 
     // Note myLocation is a CLLocationCoordinate2D here
-    TransportAPI.connectionsForLocations(from: TransportAPI.xyToString(myLocation.latitude, myLocation.longitude),
+    TransportAPI.connectionsForLocations(from: .xyToString(myLocation.latitude, myLocation.longitude),
                                            to: "Zürich HB",
                               transportations: [.s_sn_r],
                             completionHandler:
       { (connections: Connections?, error) in
         // ...
       })
+      
+For a list of locations for a query, use TranportAPI.locationsForQuery. The below code finds nearby points of interest to me:
+
+    TransportAPI.locationsForQuery(.xyToString(myLocation.latitude, myLocation.longitude),
+                                   type: .poi,
+                                   completionHandler:
+      { (connections: Locations?, error) in
+        // ...
+      })
+      
+The completion will either have a value connections/locations object, or a valid error, If the error is nil, the object will be present. Once you have the objects, they can be treated just like any other Swift object. Currently all fields are optionals, so will need to be guarded when accessed.
       
 ## License
 
