@@ -31,7 +31,7 @@ To get a list of transportation options from the API, call TransportAPI.connecti
         print(connections.connections?.last)
       })
     
-An example of using a latitude and longitude is below. The TransportAPI.swift file extends String with a xyToString function. This call asks for the next S-Bahn trains to Zürich HB from myLocation (note the "transportations" selector is inoperative in the current TransportAPI service, so for now we will get all transportation types):
+An example of using a latitude and longitude is below. The TransportAPI.swift file extends String with a xyToString function. The example below asks for the next S-Bahn trains to Zürich HB from myLocation (note the "transportations" selector is inoperative in the current TransportAPI service, so for now we will get all transportation types):
 
     // Note myLocation is a CLLocationCoordinate2D here
     TransportAPI.connectionsForLocations(from: .xyToString(myLocation.latitude, myLocation.longitude),
