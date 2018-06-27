@@ -36,7 +36,7 @@ An example of using a latitude and longitude is below. The TransportAPI.swift fi
     // Note myLocation is a CLLocationCoordinate2D here
     TransportAPI.connectionsForLocations(from: .xyToString(myLocation.latitude, myLocation.longitude),
                                            to: "Zürich HB",
-                              transportations: [.s_sn_r],
+                              transportations: [.train, .tram],
                             completionHandler:
       { (connections: Connections?, error) in
         // ...
