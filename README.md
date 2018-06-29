@@ -2,7 +2,7 @@
 
 The [SwiftzerlandTransportAPI](https://github.com/samkass/SwiftzerlandTransportAPI) is a Swift 4 Codeable API for the [OpendataCH TransportAPI](https://github.com/OpendataCH/Transport), which offers free REST access to public transportation timetables in Switzerland. Note that I am not affiliated with the TransportAPI library, service, or system; I'm just a user of theirs who wanted to use it via Swift, and thought others might also find the Swift Codable implementation handy.
 
-The Swift interface provided will only work with Swift 4, which corresponds to iOS 11 and watchOS 4. It contains little error checking, depending on the calling functions to ensure appropriate values for the parameters and passing them straight through to the foundation calls.
+The Swift interface provided will only work with Swift 4, which corresponds to iOS 11 and watchOS 4 and above. It contains little error checking, depending on the calling functions to ensure appropriate values for the parameters and passing them straight through to the foundation calls.
 
 Please report any problems as an issue to this project on GitHub.
 
